@@ -35,4 +35,11 @@ class Tag < ActiveRecord::Base
   def count
     read_attribute(:count).to_i
   end
+  
+  
+  def to_param
+     "#{self.nicename}-#{self.id}" 
+     rescue
+       "#{self.name}-#{self.id}"
+  end
 end
